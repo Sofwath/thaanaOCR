@@ -219,12 +219,6 @@ def is_valid_str(in_str):
 
 # the actual loss calc occurs here despite it not being
 # an internal Keras loss function
-def ctc_lambda_func1(args):
-    y_pred, labels, input_length, label_length = args
-    # the 2 is critical here since the first couple outputs of the RNN
-    # tend to be garbage:
-    y_pred = y_pred[:, 2:, :]
-    return K.ctc_batch_cost(labels, y_pred, input_length, label_length)
 
 def ctc_lambda_func(args):
     y_pred, labels, input_length, label_length = args
@@ -533,7 +527,8 @@ class ThaanaOCR:
         val_words = int(words_per_epoch * (val_split))
 
 
-        fdir ='/Users/sofwath/Desktop/dhivehiocr/tmp/'
+        #fdir ='/Users/sofwath/Desktop/dhivehiocr/tmp/'
+        fdir = DATA_DIR
         self.img_gen = TextImageGenerator(monogram_file=os.path.join(fdir, 'wordlist_mono_clean.txt'),
                                      bigram_file=os.path.join(fdir, 'wordlist_bi_clean.txt'),
                                      minibatch_size=32,
