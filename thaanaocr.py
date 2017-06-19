@@ -529,8 +529,8 @@ class ThaanaOCR:
 
         #fdir ='/Users/sofwath/Desktop/dhivehiocr/tmp/'
         fdir = DATA_DIR
-        self.img_gen = TextImageGenerator(monogram_file=os.path.join(fdir, 'wordlist_mono_clean.txt'),
-                                     bigram_file=os.path.join(fdir, 'wordlist_bi_clean.txt'),
+        self.img_gen = TextImageGenerator(monogram_file=os.path.join(fdir, 'wordlist_mono_dhivehi.txt'),
+                                     bigram_file=os.path.join(fdir, 'wordlist_bi_dhivehi.txt'),
                                      minibatch_size=32,
                                      img_w=img_w,
                                      img_h=self.img_h,
